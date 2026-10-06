@@ -1,0 +1,88 @@
+  console.warn
+    [Vue warn]: [Vuetify UPGRADE] 'theme.global.name.value = dark' is deprecated, use 'theme.change('dark')' instead.
+
+      10 |   function alternarTema () {
+      11 |     const siguiente = esOscuro.value ? 'light' : 'dark'
+    > 12 |     theme.global.name.value = siguiente
+         |                            ^
+      13 |     guardarTema(siguiente)
+      14 |   }
+      15 |
+
+      at warn$1 (node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:53:13)
+      at deprecate (node_modules/vuetify/src/util/console.ts:18:7)
+      at Object.set (node_modules/vuetify/src/composables/theme.ts:537:18)
+      at alternarTema (src/composables/useTema.js:12:28)
+      at callWithErrorHandling (node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:200:19)
+      at Object.callWithAsyncErrorHandling (node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:207:17)
+      at HTMLButtonElement.invoker (node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js:698:23)
+      at HTMLButtonElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:350:25)
+      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:286:3)
+      at HTMLButtonElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:233:9)
+      at HTMLButtonElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:104:17)
+      at HTMLButtonElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:241:34)
+      at DOMWrapper.<anonymous> (node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js:7375:30)
+      at node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js:56:71
+      at __awaiter (node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js:52:12)
+      at DOMWrapper.trigger (node_modules/@vue/test-utils/dist/vue-test-utils.cjs.js:7360:16)
+      at Object.trigger (tests/unit/App.spec.js:31:17)
+
+PASS tests/unit/App.spec.js
+  <App>
+    ✓ renderiza header, catálogo y footer (334 ms)
+    ✓ alterna entre tema claro y oscuro y recuerda la preferencia (417 ms)
+    ✓ el contador del header refleja los favoritos (251 ms)
+
+PASS tests/unit/store.spec.js
+  Vuex store
+    ✓ productos/fetchProductos guarda los datos de la API (3 ms)
+    ✓ productos/fetchProductos registra el error si la API falla (3 ms)
+    ✓ productosFiltrados combina categoría, búsqueda y favoritos (4 ms)
+    ✓ favoritos persiste en localStorage y permite quitar (2 ms)
+
+PASS tests/unit/ProductList.spec.js
+  <ProductList>
+    ✓ muestra una respuesta visual clara cuando la API falla (58 ms)
+    ✓ permite reintentar tras un error y luego muestra los productos (442 ms)
+    ✓ muestra el estado de carga mientras espera la respuesta (74 ms)
+    ✓ muestra el estado vacío si la API no devuelve productos (57 ms)
+    ✓ filtra por categoría y por búsqueda (391 ms)
+
+PASS tests/unit/ProductCard.spec.js
+  <ProductCard>
+    ✓ renderiza correctamente los datos del producto (58 ms)
+    ✓ avisa cuando quedan pocas unidades (23 ms)
+    ✓ refleja el estado de favorito de forma accesible (36 ms)
+    ✓ emite eventos al marcar favorito y al ver el detalle (52 ms)
+
+--------------------------|---------|----------|---------|---------|-------------------
+File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------------------|---------|----------|---------|---------|-------------------
+All files                 |   92.73 |    85.39 |   85.71 |   92.44 |                   
+ src                      |     100 |       50 |     100 |     100 |                   
+  App.vue                 |     100 |      100 |     100 |     100 |                   
+  utils.js                |     100 |       50 |     100 |     100 | 17                
+ src/components           |   91.21 |    88.33 |   78.33 |   91.21 |                   
+  AppFooter.vue           |     100 |      100 |     100 |     100 |                   
+  AppHeader.vue           |     100 |      100 |     100 |     100 |                   
+  ProductCard.vue         |     100 |      100 |     100 |     100 |                   
+  ProductDetailDialog.vue |   65.51 |       25 |    9.09 |   65.51 | 96-138            
+  ProductFilters.vue      |   92.85 |      100 |   84.61 |   92.85 | 139,155           
+  ProductList.vue         |   96.42 |    95.45 |   93.33 |   96.42 | 277               
+ src/composables          |     100 |       50 |     100 |     100 |                   
+  useTema.js              |     100 |       50 |     100 |     100 | 11                
+ src/services             |      25 |       50 |       0 |      25 |                   
+  productosService.js     |      25 |       50 |       0 |      25 | 14-16             
+ src/store                |     100 |      100 |     100 |     100 |                   
+  index.js                |     100 |      100 |     100 |     100 |                   
+ src/store/modules        |   98.14 |    90.47 |     100 |   97.91 |                   
+  favoritos.js            |   94.11 |       75 |     100 |   93.33 | 8                 
+  filtros.js              |     100 |      100 |     100 |     100 |                   
+  productos.js            |     100 |    92.85 |     100 |     100 | 25                
+--------------------------|---------|----------|---------|---------|-------------------
+Test Suites: 4 passed, 4 total
+Tests:       16 passed, 16 total
+Snapshots:   0 total
+Time:        6.083 s
+Ran all test suites.
